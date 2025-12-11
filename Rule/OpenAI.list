@@ -7,6 +7,7 @@ DOMAIN,alkalicore-pa.clients6.google.com
 DOMAIN,alkalimakersuite-pa.clients6.google.com
 DOMAIN,antigravity.google
 DOMAIN,api-iam.intercom.io
+DOMAIN,api.codeium.com
 DOMAIN,api.github.com
 DOMAIN,api.githubcopilot.com
 DOMAIN,api.groq.com
@@ -14,6 +15,7 @@ DOMAIN,api.jetbrains.ai
 DOMAIN,api.msn.com
 DOMAIN,api.statsig.com
 DOMAIN,api.together.xyz
+DOMAIN,api.windsurf.ai
 DOMAIN,apple-relay.apple.com
 DOMAIN,apple-relay.cloudflare.com
 DOMAIN,apple-relay.fastly-edge.com
@@ -22,6 +24,7 @@ DOMAIN,bard.google.com
 DOMAIN,browser-intake-datadoghq.com
 DOMAIN,cdn.openai.com
 DOMAIN,cdn.usefathom.com
+DOMAIN,cdn.windsurf.ai
 DOMAIN,chat.mistral.ai
 DOMAIN,chat.openai.com
 DOMAIN,chat.openai.com.cdn.cloudflare.net
@@ -128,6 +131,7 @@ DOMAIN-SUFFIX,client-api.arkoselabs.com
 DOMAIN-SUFFIX,clipdrop.co
 DOMAIN-SUFFIX,cloudcode-pa.googleapis.com
 DOMAIN-SUFFIX,cloudflareinsights.com
+DOMAIN-SUFFIX,codeium.com
 DOMAIN-SUFFIX,cohere.ai
 DOMAIN-SUFFIX,compute-pipe.com
 DOMAIN-SUFFIX,conman.org
@@ -161,7 +165,6 @@ DOMAIN-SUFFIX,generativelanguage.googleapis.com
 DOMAIN-SUFFIX,genspark.ai
 DOMAIN-SUFFIX,githubcopilot.com
 DOMAIN-SUFFIX,google-analytics.com
-DOMAIN-SUFFIX,googleai.com
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,googletagmanager.com
 DOMAIN-SUFFIX,googleusercontent.com
@@ -213,7 +216,6 @@ DOMAIN-SUFFIX,opendns.com
 DOMAIN-SUFFIX,openrouter.ai
 DOMAIN-SUFFIX,opera-api.com
 DOMAIN-SUFFIX,perplexity.ai
-DOMAIN-SUFFIX,perplexity.com
 DOMAIN-SUFFIX,pki.goog
 DOMAIN-SUFFIX,platform.openai.com
 DOMAIN-SUFFIX,poe.com
@@ -236,6 +238,7 @@ DOMAIN-SUFFIX,turn.livekit.cloud
 DOMAIN-SUFFIX,vimeo.com
 DOMAIN-SUFFIX,vimeocdn.com
 DOMAIN-SUFFIX,vulpes.one
+DOMAIN-SUFFIX,windsurf.ai
 DOMAIN-SUFFIX,x.ai
 DOMAIN-SUFFIX,x.com
 IP-ASN,14061

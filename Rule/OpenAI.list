@@ -165,6 +165,7 @@ DOMAIN-SUFFIX,generativelanguage.googleapis.com
 DOMAIN-SUFFIX,genspark.ai
 DOMAIN-SUFFIX,githubcopilot.com
 DOMAIN-SUFFIX,google-analytics.com
+DOMAIN-SUFFIX,googleai.com
 DOMAIN-SUFFIX,googleapis.com
 DOMAIN-SUFFIX,googletagmanager.com
 DOMAIN-SUFFIX,googleusercontent.com
@@ -216,6 +217,7 @@ DOMAIN-SUFFIX,opendns.com
 DOMAIN-SUFFIX,openrouter.ai
 DOMAIN-SUFFIX,opera-api.com
 DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,perplexity.com
 DOMAIN-SUFFIX,pki.goog
 DOMAIN-SUFFIX,platform.openai.com
 DOMAIN-SUFFIX,poe.com

@@ -241,6 +241,7 @@ DOMAIN-SUFFIX,gateio.live
 DOMAIN-SUFFIX,gateio.services
 DOMAIN-SUFFIX,gemini.com
 DOMAIN-SUFFIX,glassnode.com
+DOMAIN-SUFFIX,gmgn.ai
 DOMAIN-SUFFIX,guardarian.com
 DOMAIN-SUFFIX,hashflow.com
 DOMAIN-SUFFIX,hbabit.com
@@ -408,9 +409,11 @@ DOMAIN-SUFFIX,vfat.tools
 DOMAIN-SUFFIX,viewbase.com
 DOMAIN-SUFFIX,vitalik.ca
 DOMAIN-SUFFIX,walletconnect.com
+DOMAIN-SUFFIX,walletconnect.org
 DOMAIN-SUFFIX,watchtheburn.com
 DOMAIN-SUFFIX,wbtc.network
 DOMAIN-SUFFIX,wbtc.network,Crypt
+DOMAIN-SUFFIX,web3modal.org
 DOMAIN-SUFFIX,wintermute.com
 DOMAIN-SUFFIX,wisecoin.com
 DOMAIN-SUFFIX,wiseid.com

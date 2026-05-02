@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Sub-Store 智能隔离部署与深度清理工具
+# Sub-Store 智能隔离部署、深度清理与 CF API 证书管家 (最终版)
 
 BASE_DIR="/root/sub-store-deploy"
 DATA_DIR="${BASE_DIR}/data"
+CF_TOKEN_FILE="${BASE_DIR}/.cf_token"
 
 check_root() {
     if [ "$(id -u)" != "0" ]; then
@@ -35,12 +36,84 @@ get_public_ip() {
     exit 1
 }
 
+# ================= 证书申请模块 (CF Token 记忆版) =================
+apply_ssl() {
+    clear
+    echo -e "\033[0;36m========================================================\033[0m"
+    echo -e "       \033[1;37m🔐 申请 SSL 证书 (Cloudflare API 记忆模式)\033[0m"
+    echo -e "\033[0;36m========================================================\033[0m"
+    
+    # 检查本地是否已经存有 Token
+    local CURRENT_TOKEN=""
+    if [ -f "$CF_TOKEN_FILE" ]; then
+        CURRENT_TOKEN=$(cat "$CF_TOKEN_FILE")
+        echo -e "\033[0;32m[检测] 已发现本地存储的 CF 令牌，将自动调用。\033[0m"
+    fi
+
+    echo ""
+    read -p "1. 请输入你要申请证书的域名 (例如 xg.zhaozhao.de): " DOMAIN
+    if [ -z "$DOMAIN" ]; then
+        echo -e "\033[0;31m域名不能为空！\033[0m"; sleep 2; return
+    fi
+
+    if [ -z "$CURRENT_TOKEN" ]; then
+        echo -e "\n\033[0;33m首次使用需要配置令牌：\033[0m"
+        read -p "2. 请粘贴你的 Cloudflare API Token: " USER_TOKEN
+        if [ -z "$USER_TOKEN" ]; then
+            echo -e "\033[0;31mToken 不能为空！\033[0m"; sleep 2; return
+        fi
+        # 保存到本地文件供以后自动使用
+        mkdir -p "$BASE_DIR"
+        echo "$USER_TOKEN" > "$CF_TOKEN_FILE"
+        chmod 600 "$CF_TOKEN_FILE"
+        CURRENT_TOKEN=$USER_TOKEN
+        echo -e "\033[0;32m[已记忆] 令牌已安全存储在本地，下次申请将免输入。\033[0m"
+    fi
+
+    # 安装 acme.sh 
+    if [ ! -f ~/.acme.sh/acme.sh ]; then
+        echo -e "\n正在安装 acme.sh 证书管家..."
+        apt-get update >/dev/null 2>&1
+        apt-get install -y socat curl >/dev/null 2>&1
+        curl https://get.acme.sh | sh -s email=admin@${DOMAIN} >/dev/null 2>&1
+    fi
+
+    export CF_Token="${CURRENT_TOKEN}"
+
+    echo -e "\n开始申请证书，请稍候 (约需1-2分钟)..."
+    ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
+    
+    if ~/.acme.sh/acme.sh --issue --dns dns_cf -d "$DOMAIN" --force; then
+        CERT_DIR="/root/certs/${DOMAIN}"
+        mkdir -p "$CERT_DIR"
+        ~/.acme.sh/acme.sh --installcert -d "$DOMAIN" \
+            --key-file       "$CERT_DIR/private.key"  \
+            --fullchain-file "$CERT_DIR/fullchain.crt" >/dev/null 2>&1
+
+        echo -e "\n\033[0;32m🎉 证书申请成功！\033[0m"
+        echo -e "你的证书已安全提取至以下路径："
+        echo -e "私钥 (Key): \033[0;33m$CERT_DIR/private.key\033[0m"
+        echo -e "公钥 (Crt): \033[0;33m$CERT_DIR/fullchain.crt\033[0m"
+        echo -e "--------------------------------------------------------"
+        echo -e "⏱️  自动续期已生效。acme.sh 将会利用本地 Token 实现无感续期。"
+    else
+        echo -e "\n\033[0;31m❌ 证书申请失败！\033[0m"
+        echo -e "常见原因："
+        echo -e "1. Token 权限不对 (必须包含 Zone:DNS:Edit 权限)。"
+        echo -e "2. 域名并没有托管在 Cloudflare 上。"
+        echo -e "提示：如果需更换 Token，请在卸载菜单中重置环境或手动删除 $CF_TOKEN_FILE"
+    fi
+
+    echo -e "\n按任意键返回主菜单..."
+    read -n 1 -s
+}
+
 # ================= 卸载模块 =================
 uninstall_sub_store() {
     clear
     echo -e "\033[0;31m========================================================\033[0m"
     echo -e "\033[0;31m⚠️ 警告：高危操作！\033[0m"
-    echo -e "\033[0;31m此操作将彻底删除 Sub-Store 的所有容器、配置、节点数据及定时任务！\033[0m"
+    echo -e "\033[0;31m此操作将彻底删除 Sub-Store 的所有容器、配置、节点数据及相关的记忆令牌！\033[0m"
     echo -e "\033[0;31m========================================================\033[0m"
     read -p "确定要继续执行深度清理吗？(y/n): " confirm
     if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
@@ -50,27 +123,15 @@ uninstall_sub_store() {
     fi
 
     echo -e "\n开始执行深度清理..."
-    echo "[1/6] 强制停止并删除容器..."
     docker rm -f sub-store >/dev/null 2>&1 || true
-    
-    echo "[2/6] 清理隔离网络..."
     docker network rm sub-store-deploy_default >/dev/null 2>&1 || true
-    
-    echo "[3/6] 删除本地镜像..."
     docker rmi xream/sub-store:latest >/dev/null 2>&1 || true
-    
-    echo "[4/6] 彻底删除物理文件夹及数据..."
     rm -rf "${BASE_DIR}"
-    
-    echo "[5/6] 追杀后台残留幽灵进程..."
     pkill -9 -f sub-store.bundle.js >/dev/null 2>&1 || true
-    
-    echo "[6/6] 精准清除计划任务..."
     crontab -l 2>/dev/null | grep -v "sub-store" | crontab -
     
-    echo -e "\n\033[0;32m✅ 卸载完成！所有与 Sub-Store 相关的痕迹已从这台服务器上彻底抹除。\033[0m"
-    echo -e "现在您的系统非常干净，随时可以重新安装。"
-    echo "按任意键返回主菜单..."
+    echo -e "\n\033[0;32m✅ 卸载完成！所有痕迹 (含本地保存的 Token) 已彻底抹除。\033[0m"
+    echo -e "按任意键返回主菜单..."
     read -n 1 -s
 }
 
@@ -89,7 +150,7 @@ install_sub_store() {
         MAP_PORT=${MAP_PORT:-3001}
 
         if ss -tuln 2>/dev/null | grep -q ":${MAP_PORT} " || netstat -tuln 2>/dev/null | grep -q ":${MAP_PORT} "; then
-            echo -e "\033[0;31m[警告] 端口 ${MAP_PORT} 已被其他程序占用，请换一个！\033[0m"
+            echo -e "\033[0;31m[警告] 端口 ${MAP_PORT} 已被占用，请换一个！\033[0m"
         else
             echo -e "\033[0;32m[检测通过] 端口 ${MAP_PORT} 可用。\033[0m"
             break
@@ -124,7 +185,6 @@ EOF
     docker compose pull >/dev/null 2>&1
     docker compose up -d >/dev/null 2>&1
 
-    echo "配置安全的夜间定时更新任务..."
     apt-get update >/dev/null 2>&1 || true
     apt-get install -y cron >/dev/null 2>&1 || true
     systemctl enable cron >/dev/null 2>&1 || true
@@ -133,9 +193,7 @@ EOF
     local cron_job="0 4 * * * cd ${BASE_DIR} && docker compose pull && docker compose up -d && docker image prune -f >/dev/null 2>&1"
     (crontab -l 2>/dev/null | grep -v "sub-store" || true; echo "$cron_job") | sort -u | crontab -
 
-    echo "等待服务验证 (约需 3-5 秒)..."
     sleep 3
-
     echo -e "\n========================================================"
     echo -e "\033[0;32m🎉 部署成功！您的 Sub-Store 物理隔离版已就绪。\033[0m"
     echo -e "========================================================"
@@ -156,29 +214,21 @@ main_menu() {
     while true; do
         clear
         echo -e "\033[0;36m========================================================\033[0m"
-        echo -e "       \033[1;37mSub-Store 智能管理面板 (防冲突增强版)\033[0m"
+        echo -e "       \033[1;37mSub-Store 智能管理面板 (最终收藏版)\033[0m"
         echo -e "\033[0;36m========================================================\033[0m"
         echo -e "  \033[0;32m[1] 🚀 一键安装/更新 Sub-Store\033[0m"
         echo -e "  \033[0;31m[2] 🗑️ 深度卸载并清除所有残留数据\033[0m"
+        echo -e "  \033[0;33m[3] 🔐 申请 SSL 证书 (CF API 记忆模式)\033[0m"
         echo -e "  \033[0;37m[0] ❌ 退出脚本\033[0m"
         echo -e "\033[0;36m========================================================\033[0m"
-        read -p "请选择操作 [0-2]: " choice
+        read -p "请选择操作 [0-3]: " choice
 
         case $choice in
-            1)
-                install_sub_store
-                ;;
-            2)
-                uninstall_sub_store
-                ;;
-            0)
-                echo "感谢使用，再见！"
-                exit 0
-                ;;
-            *)
-                echo -e "\033[0;31m无效的选择，请重新输入！\033[0m"
-                sleep 1
-                ;;
+            1) install_sub_store ;;
+            2) uninstall_sub_store ;;
+            3) apply_ssl ;;
+            0) echo "感谢使用，再见！"; exit 0 ;;
+            *) echo -e "\033[0;31m无效的选择，请重新输入！\033[0m"; sleep 1 ;;
         esac
     done
 }

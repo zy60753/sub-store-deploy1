@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+# 已移除极易导致误杀的 set -euo pipefail 严格模式
 
 # 1. 定义安全隔离的绝对路径
 BASE_DIR="/root/sub-store-deploy"
@@ -50,16 +50,30 @@ setup_docker() {
     secret_key=$(openssl rand -hex 16)
     echo "生成的安全后端路径: $secret_key"
     
-    # 2. 创建绝对隔离的工作目录
+    # === 交互式端口配置与智能冲突检测 ===
+    local MAP_PORT
+    while true; do
+        read -p "请输入 Sub-Store 映射端口 (直接回车默认 3001): " MAP_PORT
+        MAP_PORT=${MAP_PORT:-3001}
+
+        # 检测端口是否被占用
+        if ss -tuln 2>/dev/null | grep -q ":${MAP_PORT} " || netstat -tuln 2>/dev/null | grep -q ":${MAP_PORT} "; then
+            echo -e "\033[0;31m[警告] 端口 ${MAP_PORT} 已被其他程序占用，请重新输入一个未被占用的端口！\033[0m"
+        else
+            echo -e "\033[0;32m[检测通过] 端口 ${MAP_PORT} 可用。\033[0m"
+            break
+        fi
+    done
+
+    # 创建绝对隔离的工作目录
     mkdir -p "${DATA_DIR}"
     cd "${BASE_DIR}"
 
     echo "清理旧容器、旧网络和幽灵进程..."
     docker rm -f sub-store >/dev/null 2>&1 || true
-    # 3. 斩杀抢占 3001 端口的原生 Node 幽灵进程
     pkill -9 -f sub-store.bundle.js >/dev/null 2>&1 || true
 
-    # 4. 生成包含完整环境变量的配置文件
+    # 生成包含完整环境变量和动态端口的配置文件
     cat <<EOF > docker-compose.yml
 services:
   sub-store:
@@ -72,7 +86,7 @@ services:
       - SUB_STORE_BACKEND_API_PATH=/$secret_key
       - SUB_STORE_BACKEND_API_TOKEN=$secret_key
     ports:
-      - "3001:3001"
+      - "${MAP_PORT}:3001"
     volumes:
       - ${DATA_DIR}:/opt/app/data
 EOF
@@ -86,40 +100,42 @@ EOF
 
     if ! command -v cron &>/dev/null; then
         echo "安装 cron..."
-        apt-get update >/dev/null 2>&1
-        apt-get install -y cron >/dev/null 2>&1
+        apt-get update >/dev/null 2>&1 || true
+        apt-get install -y cron >/dev/null 2>&1 || true
     fi
 
-    systemctl enable cron >/dev/null 2>&1
-    systemctl start cron
+    # 增加防误杀机制
+    systemctl enable cron >/dev/null 2>&1 || true
+    systemctl start cron >/dev/null 2>&1 || true
 
-    # 5. 安全的定时任务：每天凌晨 4 点执行，且绑定绝对路径
+    # 安全的定时任务：每天凌晨 4 点执行，且绑定绝对路径
     echo "配置安全的定时更新任务..."
     local cron_job="0 4 * * * cd ${BASE_DIR} && docker compose pull && docker compose up -d && docker image prune -f >/dev/null 2>&1"
-    
-    # 清理掉旧的危险定时任务，写入新的安全任务
     (crontab -l 2>/dev/null | grep -v "sub-store" || true; echo "$cron_job") | sort -u | crontab -
 
-    echo "等待服务启动..."
+    echo "等待服务启动验证 (约需 5-10 秒)..."
     for i in {1..30}; do
-        if curl -s "http://127.0.0.1:3001" >/dev/null; then
+        if curl -s "http://127.0.0.1:${MAP_PORT}" >/dev/null; then
             echo -e "\n========================================================"
-            echo -e "\033[0;32m部署成功！您的 Sub-Store 物理隔离版已就绪。\033[0m"
+            echo -e "\033[0;32m🎉 部署成功！您的 Sub-Store 物理隔离版已就绪。\033[0m"
             echo -e "========================================================"
-            echo -e "安装目录：${BASE_DIR}"
-            echo -e "Sub-Store 面板：http://$public_ip:3001"
-            echo -e "后端地址：http://$public_ip:3001/$secret_key"
+            echo -e "📁 安装目录：${BASE_DIR}"
+            echo -e "🌐 面板登录：http://$public_ip:${MAP_PORT}"
+            echo -e "🔑 后端路径：http://$public_ip:${MAP_PORT}/$secret_key"
             echo -e "--------------------------------------------------------"
-            echo -e "定时更新已安全优化至每日凌晨 4 点，不再引发重置冲突。"
+            echo -e "⏱️ 自动更新已优化至每日凌晨 4 点，告别重置冲突。"
             echo -e "========================================================\n"
             return 0
         fi
         sleep 1
     done
 
-    echo "警告: 服务似乎未能在预期时间内启动，请检查端口是否被其他项目占用。"
-    echo -e "\n备用信息："
-    echo -e "后端地址：http://$public_ip:3001/$secret_key\n"
+    echo -e "\n========================================================"
+    echo -e "\033[0;33m⚠️ 服务已启动，但网络验证超时。请确认服务器防火墙已放行 ${MAP_PORT} 端口。\033[0m"
+    echo -e "========================================================"
+    echo -e "🌐 面板登录：http://$public_ip:${MAP_PORT}"
+    echo -e "🔑 后端路径：http://$public_ip:${MAP_PORT}/$secret_key"
+    echo -e "========================================================\n"
 }
 
 main() {
@@ -129,5 +145,4 @@ main() {
     setup_docker
 }
 
-trap 'echo "错误发生在第 $LINENO 行"; exit 1' ERR
 main

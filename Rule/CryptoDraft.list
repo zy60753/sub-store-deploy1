@@ -37,6 +37,7 @@ DOMAIN-SUFFIX,ada.support
 DOMAIN-SUFFIX,aex.com
 DOMAIN-SUFFIX,aicoin.com
 DOMAIN-SUFFIX,aimoon.com
+DOMAIN-SUFFIX,api-eu.bybit.com
 DOMAIN-SUFFIX,api.binance.com
 DOMAIN-SUFFIX,api.ffbbbdc6d3c353211fe2ba39c9f744cd.com
 DOMAIN-SUFFIX,api.saasexch.cc
@@ -126,6 +127,7 @@ DOMAIN-SUFFIX,byabcde.com
 DOMAIN-SUFFIX,byapis.com
 DOMAIN-SUFFIX,byapps.net
 DOMAIN-SUFFIX,bybdc6.com
+DOMAIN-SUFFIX,bybit-eu.com
 DOMAIN-SUFFIX,bybit-exchange.github.io
 DOMAIN-SUFFIX,bybit-global.com
 DOMAIN-SUFFIX,bybit-static.com
@@ -133,8 +135,11 @@ DOMAIN-SUFFIX,bybit.ada.support
 DOMAIN-SUFFIX,bybit.biz
 DOMAIN-SUFFIX,bybit.cloud
 DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybit.eu
+DOMAIN-SUFFIX,bybit.fr
 DOMAIN-SUFFIX,bybit.io
 DOMAIN-SUFFIX,bybit.net
+DOMAIN-SUFFIX,bybit.nl
 DOMAIN-SUFFIX,bybit.org
 DOMAIN-SUFFIX,bybitapi.com
 DOMAIN-SUFFIX,bybitglobal.com
@@ -374,6 +379,7 @@ DOMAIN-SUFFIX,saasexch.co
 DOMAIN-SUFFIX,saasexch.com
 DOMAIN-SUFFIX,saasexch.io
 DOMAIN-SUFFIX,satoshilabs.com
+DOMAIN-SUFFIX,sc-datasink.ffe390afd658c19dcbf707e0597b846d.de
 DOMAIN-SUFFIX,sdstream.yingwangtech.net
 DOMAIN-SUFFIX,sfstream.yingwangtech.net
 DOMAIN-SUFFIX,slam.io

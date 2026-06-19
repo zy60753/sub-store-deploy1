@@ -7,6 +7,9 @@ DOMAIN,aisandbox-pa.googleapis.com
 DOMAIN,aistudio.google.com
 DOMAIN,alkalicore-pa.clients6.google.com
 DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN,anthropic-com.ghost.io
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic.com.cdn.cloudflare.net
 DOMAIN,antigravity-unleash.goog
 DOMAIN,antigravity.google
 DOMAIN,api-iam.intercom.io
@@ -27,6 +30,7 @@ DOMAIN,apple-relay.fastly-edge.com
 DOMAIN,assets.msn.com
 DOMAIN,bard.google.com
 DOMAIN,browser-intake-datadoghq.com
+DOMAIN,browser-intake-us5-datadoghq.com
 DOMAIN,cdn.openai.com
 DOMAIN,cdn.usefathom.com
 DOMAIN,cdn.windsurf.ai
@@ -83,6 +87,7 @@ DOMAIN,r.bing.com
 DOMAIN,robinfrontend-pa.googleapis.com
 DOMAIN,router.huggingface.co
 DOMAIN,self.events.data.microsoft.com
+DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN,services.bingapis.com
 DOMAIN,sfo3.turn.livekit.cloud
 DOMAIN,static.cloudflareinsights.com
@@ -97,6 +102,7 @@ DOMAIN-KEYWORD,chatgpt
 DOMAIN-KEYWORD,claude
 DOMAIN-KEYWORD,cloudflare
 DOMAIN-KEYWORD,colab
+DOMAIN-KEYWORD,datadog
 DOMAIN-KEYWORD,developerprofiles
 DOMAIN-KEYWORD,generativelanguage
 DOMAIN-KEYWORD,grok
@@ -108,6 +114,7 @@ DOMAIN-KEYWORD,openaicom
 DOMAIN-KEYWORD,openaicom-api
 DOMAIN-KEYWORD,perplexity
 DOMAIN-KEYWORD,prodregistryv
+DOMAIN-KEYWORD,sift
 DOMAIN-SUFFIX,ai.azure.com
 DOMAIN-SUFFIX,ai.com
 DOMAIN-SUFFIX,aistudio.google.com
@@ -154,9 +161,12 @@ DOMAIN-SUFFIX,cici.com
 DOMAIN-SUFFIX,ciciai.com
 DOMAIN-SUFFIX,circumlunar.space
 DOMAIN-SUFFIX,civitai.com
+DOMAIN-SUFFIX,clau.de
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,claude.ai.com
 DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,claudeusercontent.com
 DOMAIN-SUFFIX,client-api.arkoselabs.com
 DOMAIN-SUFFIX,clientstream.launchdarkly.com
@@ -309,11 +319,13 @@ DOMAIN-SUFFIX,z.ai
 DOMAIN-SUFFIX,zed.dev
 IP-ASN,14061
 IP-ASN,20473
+IP-ASN,399358
 IP-CIDR,104.238.150.13/32
 IP-CIDR,129.146.3.78/32
 IP-CIDR,143.110.232.239/32
 IP-CIDR,143.198.200.27/32
 IP-CIDR,159.89.204.203/32
+IP-CIDR,160.79.104.0/21
 IP-CIDR,160.79.104.0/23
 IP-CIDR,164.92.115.213/32
 IP-CIDR,164.92.71.155/32
@@ -328,4 +340,5 @@ IP-CIDR6,2001:19F0:7001:1149:5400:4FF:FEAC:A0B3/128
 IP-CIDR6,2001:19F0:7001:55B3:5400:4FF:FEAB:BA8F/128
 IP-CIDR6,2001:19F0:7001:8E6:5400:4FF:FEAB:B953/128
 IP-CIDR6,2401:C080:1000:47C5:5400:4FF:FEAB:F724/128
+IP-CIDR6,2607:6BC0::/32
 IP-CIDR6,2607:6BC0::/48

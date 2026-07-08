@@ -117,6 +117,7 @@ DOMAIN-KEYWORD,prodregistryv
 DOMAIN-KEYWORD,sift
 DOMAIN-SUFFIX,ai.azure.com
 DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,aicode.googleapis.com
 DOMAIN-SUFFIX,aistudio.google.com
 DOMAIN-SUFFIX,algolia.net
 DOMAIN-SUFFIX,android.chat.openai.com

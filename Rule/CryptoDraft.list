@@ -11,7 +11,6 @@ DOMAIN-KEYWORD,coinbase
 DOMAIN-KEYWORD,ethereum
 DOMAIN-KEYWORD,gate
 DOMAIN-KEYWORD,hbfile
-DOMAIN-KEYWORD,htx.com
 DOMAIN-KEYWORD,huobi
 DOMAIN-KEYWORD,mdex
 DOMAIN-KEYWORD,metamask
@@ -27,9 +26,7 @@ DOMAIN-KEYWORD,thepinet
 DOMAIN-SUFFIX, fees.info
 DOMAIN-SUFFIX,1inch.io
 DOMAIN-SUFFIX,1ml.com
-DOMAIN-SUFFIX,88maru.com
 DOMAIN-SUFFIX,aave.com
-DOMAIN-SUFFIX,access.pushsdk.com
 DOMAIN-SUFFIX,accounts.binance.com
 DOMAIN-SUFFIX,accounts.binance.info
 DOMAIN-SUFFIX,acinq.co
@@ -43,7 +40,6 @@ DOMAIN-SUFFIX,api.ffbbbdc6d3c353211fe2ba39c9f744cd.com
 DOMAIN-SUFFIX,api.saasexch.cc
 DOMAIN-SUFFIX,api.saasexch.io
 DOMAIN-SUFFIX,appsflayer.com
-DOMAIN-SUFFIX,apru88.com
 DOMAIN-SUFFIX,apy999.com
 DOMAIN-SUFFIX,arbitrum.io
 DOMAIN-SUFFIX,asproex.com
@@ -282,7 +278,6 @@ DOMAIN-SUFFIX,hecochain.com
 DOMAIN-SUFFIX,hecoview.com
 DOMAIN-SUFFIX,hepsiburada.com
 DOMAIN-SUFFIX,hepsipay.com
-DOMAIN-SUFFIX,htx.co.nz
 DOMAIN-SUFFIX,htx.com
 DOMAIN-SUFFIX,huobi.br.com
 DOMAIN-SUFFIX,huobi.co.ma
@@ -338,11 +333,9 @@ DOMAIN-SUFFIX,mexc.co
 DOMAIN-SUFFIX,mexc.com
 DOMAIN-SUFFIX,mexcsensors.com
 DOMAIN-SUFFIX,min-api.cryptocompare.com
-DOMAIN-SUFFIX,mokexapp.com
 DOMAIN-SUFFIX,mokexapp.io
 DOMAIN-SUFFIX,mokexapp.net
 DOMAIN-SUFFIX,myetherwallet.com
-DOMAIN-SUFFIX,myqcloud.com
 DOMAIN-SUFFIX,mytokenapi.com
 DOMAIN-SUFFIX,nansen.ai
 DOMAIN-SUFFIX,native.binance.com
@@ -359,7 +352,6 @@ DOMAIN-SUFFIX,nodereal.io
 DOMAIN-SUFFIX,nonfungible.com
 DOMAIN-SUFFIX,nyctale.io
 DOMAIN-SUFFIX,oasis.io
-DOMAIN-SUFFIX,octu88.com
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx-dns.com
@@ -399,8 +391,6 @@ DOMAIN-SUFFIX,privacyportal-bn.my.onetrust.com
 DOMAIN-SUFFIX,probit.com
 DOMAIN-SUFFIX,public-1306379396.file.myqcloud.com
 DOMAIN-SUFFIX,public.bnbstatic.com
-DOMAIN-SUFFIX,pushstat.api.engagelab.cc
-DOMAIN-SUFFIX,qcloud.com
 DOMAIN-SUFFIX,quant.com
 DOMAIN-SUFFIX,ramon.cash
 DOMAIN-SUFFIX,ramon.money

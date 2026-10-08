@@ -60,6 +60,7 @@ DOMAIN,generativelanguage.googleapis.com
 DOMAIN,gspe1-ssl.ls.apple.com
 DOMAIN,guzzoni.apple.com
 DOMAIN,host.livekit.cloud
+DOMAIN,http-intake.logs.us5.datadoghq.com
 DOMAIN,imagine.meta.com
 DOMAIN,in.appcenter.ms
 DOMAIN,integrate.api.nvidia.com

@@ -1,35 +1,21 @@
 # Domain Keywords
 DOMAIN-KEYWORD,binance
-DOMAIN-KEYWORD,bitget
-DOMAIN-KEYWORD,bnbstatic
-DOMAIN-KEYWORD,byabcde
-DOMAIN-KEYWORD,bybdc6
 DOMAIN-KEYWORD,bybit
 DOMAIN-KEYWORD,bybit-global
 DOMAIN-KEYWORD,bybitglobal
-DOMAIN-KEYWORD,coinbase
-DOMAIN-KEYWORD,ethereum
-DOMAIN-KEYWORD,gate
 DOMAIN-KEYWORD,hbfile
-DOMAIN-KEYWORD,htx.com
 DOMAIN-KEYWORD,huobi
-DOMAIN-KEYWORD,mdex
 DOMAIN-KEYWORD,metamask
 DOMAIN-KEYWORD,mokexapp
 DOMAIN-KEYWORD,okx
-DOMAIN-KEYWORD,pionex
 DOMAIN-KEYWORD,redotpay
-DOMAIN-KEYWORD,thepinet
 
 # Domains
 
 # Domain Suffixes
-DOMAIN-SUFFIX, fees.info
 DOMAIN-SUFFIX,1inch.io
 DOMAIN-SUFFIX,1ml.com
-DOMAIN-SUFFIX,88maru.com
 DOMAIN-SUFFIX,aave.com
-DOMAIN-SUFFIX,access.pushsdk.com
 DOMAIN-SUFFIX,accounts.binance.com
 DOMAIN-SUFFIX,accounts.binance.info
 DOMAIN-SUFFIX,acinq.co
@@ -43,7 +29,6 @@ DOMAIN-SUFFIX,api.ffbbbdc6d3c353211fe2ba39c9f744cd.com
 DOMAIN-SUFFIX,api.saasexch.cc
 DOMAIN-SUFFIX,api.saasexch.io
 DOMAIN-SUFFIX,appsflayer.com
-DOMAIN-SUFFIX,apru88.com
 DOMAIN-SUFFIX,apy999.com
 DOMAIN-SUFFIX,arbitrum.io
 DOMAIN-SUFFIX,asproex.com
@@ -186,7 +171,6 @@ DOMAIN-SUFFIX,coinonecore.com
 DOMAIN-SUFFIX,coinonecorp.com
 DOMAIN-SUFFIX,coinowo.com
 DOMAIN-SUFFIX,cointrendz.com
-DOMAIN-SUFFIX,compare.com
 DOMAIN-SUFFIX,compound.finance
 DOMAIN-SUFFIX,coredao.org
 DOMAIN-SUFFIX,crunchbase.com
@@ -253,7 +237,6 @@ DOMAIN-SUFFIX,f2pool.com
 DOMAIN-SUFFIX,fantom.foundation
 DOMAIN-SUFFIX,fantom.network
 DOMAIN-SUFFIX,fapibak.binance.com
-DOMAIN-SUFFIX,ffbbbdc6d3c353211fe2ba39c9f744cd.com
 DOMAIN-SUFFIX,fiat24.com
 DOMAIN-SUFFIX,filecoin.io
 DOMAIN-SUFFIX,flare.network
@@ -285,7 +268,6 @@ DOMAIN-SUFFIX,hecochain.com
 DOMAIN-SUFFIX,hecoview.com
 DOMAIN-SUFFIX,hepsiburada.com
 DOMAIN-SUFFIX,hepsipay.com
-DOMAIN-SUFFIX,htx.co.nz
 DOMAIN-SUFFIX,htx.com
 DOMAIN-SUFFIX,huobi.br.com
 DOMAIN-SUFFIX,huobi.co.ma
@@ -341,11 +323,9 @@ DOMAIN-SUFFIX,mexc.co
 DOMAIN-SUFFIX,mexc.com
 DOMAIN-SUFFIX,mexcsensors.com
 DOMAIN-SUFFIX,min-api.cryptocompare.com
-DOMAIN-SUFFIX,mokexapp.com
 DOMAIN-SUFFIX,mokexapp.io
 DOMAIN-SUFFIX,mokexapp.net
 DOMAIN-SUFFIX,myetherwallet.com
-DOMAIN-SUFFIX,myqcloud.com
 DOMAIN-SUFFIX,mytokenapi.com
 DOMAIN-SUFFIX,nansen.ai
 DOMAIN-SUFFIX,native.binance.com
@@ -362,7 +342,6 @@ DOMAIN-SUFFIX,nodereal.io
 DOMAIN-SUFFIX,nonfungible.com
 DOMAIN-SUFFIX,nyctale.io
 DOMAIN-SUFFIX,oasis.io
-DOMAIN-SUFFIX,octu88.com
 DOMAIN-SUFFIX,okex.com
 DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx-dns.com
@@ -399,15 +378,10 @@ DOMAIN-SUFFIX,poly.network
 DOMAIN-SUFFIX,polymarket.com
 DOMAIN-SUFFIX,poolin.com
 DOMAIN-SUFFIX,privacyportal-bn.my.onetrust.com
-DOMAIN-SUFFIX,probit.com
 DOMAIN-SUFFIX,public-1306379396.file.myqcloud.com
 DOMAIN-SUFFIX,public.bnbstatic.com
-DOMAIN-SUFFIX,pushstat.api.engagelab.cc
-DOMAIN-SUFFIX,qcloud.com
-DOMAIN-SUFFIX,quant.com
 DOMAIN-SUFFIX,ramon.cash
 DOMAIN-SUFFIX,ramon.money
-DOMAIN-SUFFIX,rank.io
 DOMAIN-SUFFIX,raydium.io
 DOMAIN-SUFFIX,redotpay.com
 DOMAIN-SUFFIX,redotpay.zendesk.com
@@ -426,7 +400,6 @@ DOMAIN-SUFFIX,satoshilabs.com
 DOMAIN-SUFFIX,sc-datasink.ffe390afd658c19dcbf707e0597b846d.de
 DOMAIN-SUFFIX,sdstream.yingwangtech.net
 DOMAIN-SUFFIX,sfstream.yingwangtech.net
-DOMAIN-SUFFIX,slam.io
 DOMAIN-SUFFIX,solana.com
 DOMAIN-SUFFIX,solidifi.app
 DOMAIN-SUFFIX,stateofthedapps.com
@@ -463,7 +436,6 @@ DOMAIN-SUFFIX,trustwallet.com
 DOMAIN-SUFFIX,trustwalletapp.com
 DOMAIN-SUFFIX,unisat.io
 DOMAIN-SUFFIX,uniswap.org
-DOMAIN-SUFFIX,upbit.com
 DOMAIN-SUFFIX,vfat.tools
 DOMAIN-SUFFIX,viewbase.com
 DOMAIN-SUFFIX,vitalik.ca
@@ -471,7 +443,6 @@ DOMAIN-SUFFIX,walletconnect.com
 DOMAIN-SUFFIX,walletconnect.org
 DOMAIN-SUFFIX,watchtheburn.com
 DOMAIN-SUFFIX,wbtc.network
-DOMAIN-SUFFIX,wbtc.network,Crypt
 DOMAIN-SUFFIX,web3modal.org
 DOMAIN-SUFFIX,wintermute.com
 DOMAIN-SUFFIX,wisecoin.com

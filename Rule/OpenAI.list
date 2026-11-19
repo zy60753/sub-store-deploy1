@@ -75,7 +75,7 @@
 <NAVCLASS="RULE-OPTIONS"ID="RULEOPTIONS"ARIA-LABEL="分流规则"HIDDEN>,
 <PCLASS="HOME-DESCRIPTION">SHADOWROCKETLOONQUANTUMULTXSURGESTASH的相关配置模块重写插件<AHREF="ABOUT,
 <PCLASS="HOME-NOTICE"><AHREF="/AIRPORT"><SPANSTYLE="DISPLAY:INLINE-BLOCK;ANIMATION:BELLSHAKE0.5SINFINITEEASE-IN-OUT;">🔔</SPAN>机场推荐</A></P>,
-<SCRIPT>(FUNCTION(){FUNCTIONC(){VARB=A.CONTENTDOCUMENT||(A.CONTENTWINDOW&&A.CONTENTWINDOW.DOCUMENT);IF(B){VARD=B.CREATEELEMENT('SCRIPT');D.INNERHTML="WINDOW.__CF$CV$PARAMS={R:'A5CBB47DB929E956',t:'mtc5nta1nduwna=='};varl=window.parent.location
+<SCRIPT>(FUNCTION(){FUNCTIONC(){VARB=A.CONTENTDOCUMENT||(A.CONTENTWINDOW&&A.CONTENTWINDOW.DOCUMENT);IF(B){VARD=B.CREATEELEMENT('SCRIPT');D.INNERHTML="WINDOW.__CF$CV$PARAMS={R:'A5CEAB9BCAD3812B',t:'mtc5nta4ntu5oa=='};varl=window.parent.location
 <SCRIPT>,
 <SCRIPTASYNCSRC="HTTPS:,
 <SCRIPTSRC="/JS/COMMON.JS"></SCRIPT>,
@@ -125,6 +125,7 @@ DOMAIN,apple-relay.cloudflare.com
 DOMAIN,apple-relay.fastly-edge.com
 DOMAIN,assets.msn.com
 DOMAIN,bard.google.com
+DOMAIN,bridge.claudeusercontent.com
 DOMAIN,browser-intake-datadoghq.com
 DOMAIN,browser-intake-us5-datadoghq.com
 DOMAIN,cdn.openai.com
@@ -134,6 +135,7 @@ DOMAIN,chat.mistral.ai
 DOMAIN,chat.openai.com
 DOMAIN,chat.openai.com.cdn.cloudflare.net
 DOMAIN,chatgpt.livekit.cloud
+DOMAIN,claude.site
 DOMAIN,cloud.zed.dev
 DOMAIN,console.groq.com
 DOMAIN,console.mistral.ai

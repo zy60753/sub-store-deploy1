@@ -75,7 +75,7 @@
 <NAVCLASS="RULE-OPTIONS"ID="RULEOPTIONS"ARIA-LABEL="分流规则"HIDDEN>,
 <PCLASS="HOME-DESCRIPTION">SHADOWROCKETLOONQUANTUMULTXSURGESTASH的相关配置模块重写插件<AHREF="ABOUT,
 <PCLASS="HOME-NOTICE"><AHREF="/AIRPORT"><SPANSTYLE="DISPLAY:INLINE-BLOCK;ANIMATION:BELLSHAKE0.5SINFINITEEASE-IN-OUT;">🔔</SPAN>机场推荐</A></P>,
-<SCRIPT>(FUNCTION(){FUNCTIONC(){VARB=A.CONTENTDOCUMENT||(A.CONTENTWINDOW&&A.CONTENTWINDOW.DOCUMENT);IF(B){VARD=B.CREATEELEMENT('SCRIPT');D.INNERHTML="WINDOW.__CF$CV$PARAMS={R:'A5DE19C0EBD46287',t:'mtc5nti0nzm5nq=='};varl=window.parent.location
+<SCRIPT>(FUNCTION(){FUNCTIONC(){VARB=A.CONTENTDOCUMENT||(A.CONTENTWINDOW&&A.CONTENTWINDOW.DOCUMENT);IF(B){VARD=B.CREATEELEMENT('SCRIPT');D.INNERHTML="WINDOW.__CF$CV$PARAMS={R:'A5E0D17CFC2C2BC1',t:'mtc5nti3ntg5mw=='};varl=window.parent.location
 <SCRIPT>,
 <SCRIPTASYNCSRC="HTTPS:,
 <SCRIPTSRC="/JS/COMMON.JS"></SCRIPT>,
@@ -154,6 +154,8 @@ DOMAIN,gateway.bingviz.microsoftapp.net
 DOMAIN,geller-pa.googleapis.com
 DOMAIN,gemini.google
 DOMAIN,gemini.google.com
+DOMAIN,geminiweb-pa.clients.google.com
+DOMAIN,geminiweb-pa.clients6.google.com
 DOMAIN,generativeai.google
 DOMAIN,generativelanguage.googleapis.com
 DOMAIN,graph.facebook.com
@@ -173,6 +175,7 @@ DOMAIN,location.microsoft.com
 DOMAIN,makersuite.google.com
 DOMAIN,models.inference.ai.azure.com
 DOMAIN,nexus-websocket-a.intercom.io
+DOMAIN,notebooklm-pa.googleapis.com
 DOMAIN,notebooklm.google
 DOMAIN,notebooklm.google.com
 DOMAIN,o33249.ingest.sentry.io
@@ -206,6 +209,7 @@ DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
 DOMAIN,www.bing.com
 DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
 DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,antigravity
 DOMAIN-KEYWORD,apple-relay
 DOMAIN-KEYWORD,chatgpt
 DOMAIN-KEYWORD,claude
